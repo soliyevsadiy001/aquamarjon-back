@@ -13,7 +13,7 @@ declare global {
 }
 
 export function signToken(user: AuthedRequestUser): string {
-  return jwt.sign(user, env.JWT_SECRET, { expiresIn: env.JWT_EXPIRES_IN as string & {} });
+  return jwt.sign(user, env.JWT_SECRET, { expiresIn: env.JWT_EXPIRES_IN as unknown as import("jsonwebtoken").SignOptions["expiresIn"] });
 }
 
 /** Требует валидный Bearer-токен (любая роль). 401, если токена нет/невалиден. */
