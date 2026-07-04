@@ -25,7 +25,7 @@ function parseExpiresInSeconds(name: string, fallback: string): number {
   const match = /^(\d+)\s*(s|m|h|d|w|y)$/i.exec(raw.trim());
   if (!match) {
     throw new Error(
-      [env] Некорректный формат ${name}="${raw}". Ожидается число секунд или "30d"/"12h"/"15m" и т.п.
+      `[env] Некорректный формат ${name}="${raw}". Ожидается число секунд или "30d"/"12h"/"15m" и т.п.`
     );
   }
   const amount = Number(match[1]);
